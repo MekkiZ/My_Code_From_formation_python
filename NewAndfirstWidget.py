@@ -1,6 +1,7 @@
 #coding :utf-8
 
 import tkinter
+from tkinter import messagebox
 
 
 '''le widget c'ets le term quon emploi pour tout mettre dans un fentre, allez voir la playliste de tkinter
@@ -11,7 +12,6 @@ nom de la variable = nom du widget (widget parent, paraetres ...)
 
 '''
 
-app= tkinter.Tk()
 
 #lablel_walcome = tkinter.Label(app, text="miklar le rustre") #seul, python ne sauras pascomemnt l'afficher on va devoir le parametrer
 
@@ -38,23 +38,49 @@ def boucle():
 
 boutton_quit = tkinter.Button(app, text="OK", command=boucle)
 boutton_quit.pack()
-"""
 
+
+#creation d'une definition piur avoir un message d'erreur:
+
+
+plusieur type de bout, showerror, showinfo, showwarning ; il ya s des fenetre modal n avec : askquestion
+on as egalement avc askokcancel, askyesno, askretrycancel
+
+
+def show_modal_window():
+    messagebox.showerror("erreur", "un problem esst survenue !")
+
+
+def show_modal_window2():
+    messagebox.askquestion("sondage", "remplire la demande")
+
+
+btn = tkinter.Button(app, text='declancher une rreur', command= show_modal_window)
+btn2 = tkinter.Button(app, text='attention au sondage', command= show_modal_window2)
 #widget pour cocher la case dans les application python
 
 check_widget = tkinter.Checkbutton(app, text="coche si tu est un humain" , offvalue=2, onvalue=5, height=34, width=50) # il y as des valeur pardefault si on veux changer cela on as une methode qui est offvakue()
 radio_widget= tkinter.Radiobutton(app, text="homme", value=1)
-radio_widget2= tkinter.Radiobutton(app, text="homme", value=1)
+radio_widget2= tkinter.Radiobutton(app, text="homme", value=0)
+scale_w= tkinter.Scale(app, from_=10, to=50, tickinterval=10)
+spin_w=tkinter.Spinbox(app, from_=10, to=50)
+lb= tkinter.Listbox(app)
+lb.insert(1,"windows")
+lb.insert(2,"fbgdfgdf")
+lb.insert(3,"fdbdfbqds")
 
 
 
+lb.pack()
+spin_w.pack()
+scale_w.pack()
 radio_widget2.pack()
 radio_widget.pack()
 check_widget.pack()
-
-
-
-
+btn2.pack()
+btn.pack()
+"""
+app= tkinter.Tk()
 
 
 
